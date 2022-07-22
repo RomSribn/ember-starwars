@@ -1,9 +1,7 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import config from 'ember-starwars/config/environment';
 
 export default class RouteRoot extends Route {
-  // api = service();
   @service api;
 
   async model() {

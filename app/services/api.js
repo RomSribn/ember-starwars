@@ -5,7 +5,6 @@ import Service, { inject as service } from '@ember/service';
  * @augments ember
  */
 export default class Api extends Service {
-  // restApi = service();
   @service restApi;
   /**
    * @description Helper function which makes a request.
