@@ -1,0 +1,10 @@
+.button-home {
+    &::before {
+        content: "⬅";
+        position: absolute;
+        font-size: $big;
+        left: 20px;
+        top: -30%;
+        color: $yellow;
+    }
+}

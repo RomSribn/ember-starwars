@@ -1,0 +1,19 @@
+.card {
+    background-color: transparent;
+    margin: 20px;
+
+    .card-header {
+        background-color: $yellow;
+        color: $black;
+        border-bottom: none;
+    }
+
+    .list-group {
+        border: 1px solid $yellow;
+
+        .list-group-item {
+            border: 1px solid $yellow;
+            background-color: transparent;
+        }
+    }
+}

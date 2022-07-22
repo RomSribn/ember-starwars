@@ -1,16 +1,11 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class RouteRoot extends Route {
-  @service api;
+  @tracked isLoading = true;
 
-  async model() {
-    // const people = await this.api.getPeople();
-    // const starships = await this.api.getStarships();
-    // console.log(config);
-    // return {
-    //   people,
-    //   starships
-    // };
+  @action handlePlayerChose() {
+    this.isLoading = true;
   }
 }

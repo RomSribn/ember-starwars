@@ -5,13 +5,13 @@ import { inject as service } from '@ember/service';
 import { generateRandom } from 'ember-starwars/helpers/generateRandom';
 import { figuringWinner } from 'ember-starwars/helpers/figuringWinner';
 
-export default class PeopleRoot extends Route {
+export default class StarshipsRoot extends Route {
   @service api;
   async model() {
-    const people = await this.api.getPeople();
+    const starships = await this.api.getStarships();
     const fighters = await Promise.all([
-      this.api.getPerson(generateRandom(people.count)),
-      this.api.getPerson(generateRandom(people.count))
+      this.api.getStarship(generateRandom(starships.count)),
+      this.api.getStarship(generateRandom(starships.count))
     ]);
     return { fighters: figuringWinner(...fighters) };
   }

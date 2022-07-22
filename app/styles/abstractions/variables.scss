@@ -1,12 +1,12 @@
 /* Colors */
-$textColor: #ffe81f;
-$background: #000;
+$yellow: #ffe81f;
+$black: #000;
 
 /* Font Sizes */
 $small: 14pt;
-$smallest: $small/1.5;
+$smallest: calc($small/1.5);
 $big: 60px;
-$normal: $big/2;
+$normal: calc($big/2);
 
 /* Screen Sizes */
 $mobileS: 480px;

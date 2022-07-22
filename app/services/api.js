@@ -22,12 +22,15 @@ export default class Api extends Service {
       })
       .catch((error) => {
         let errorInfo = {
+          error: true,
           status: error.status,
           name: error.name,
           message: error.message
         };
         // eslint-disable-next-line ember/no-private-routing-service
         getOwner(this).lookup('router:main').transitionTo('error', { queryParams: errorInfo });
+
+        return errorInfo;
       });
   }
   /*   People   */
@@ -40,6 +43,15 @@ export default class Api extends Service {
     let url = `/people/?page=${page}`;
     return this.doRequest(url, 'GET');
   }
+  /**
+   * @description Get person from people by id.
+   * @function getPerson
+   * @returns {object}
+   */
+  getPerson(id = 1) {
+    let url = `/people/${id}`;
+    return this.doRequest(url, 'GET');
+  }
   /*   Starships   */
   /**
    * @description Get starships array (17 on the page).
@@ -48,6 +60,15 @@ export default class Api extends Service {
    */
   getStarships(page = 1) {
     let url = `/starships/?page=${page}`;
+    return this.doRequest(url, 'GET');
+  }
+  /**
+   * @description Get starship from starships by id.
+   * @function getStarship
+   * @returns {object}
+   */
+  getStarship(id = 1) {
+    let url = `/starships/${id}`;
     return this.doRequest(url, 'GET');
   }
 }
