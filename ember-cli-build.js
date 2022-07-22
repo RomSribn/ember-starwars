@@ -6,14 +6,21 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
     compassOptions: {
-      outputStyle: 'expanded',
+      outputStyle: 'expanded'
     },
+
     'ember-cli-babel': {
-      includePolyfill: true,
+      includePolyfill: true
     },
+
     sassOptions: {
-      extension: 'scss',
+      extension: 'scss'
     },
+
+    'ember-bootstrap': {
+      bootstrapVersion: 5,
+      importBootstrapCSS: false
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

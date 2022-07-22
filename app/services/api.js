@@ -5,7 +5,8 @@ import Service, { inject as service } from '@ember/service';
  * @augments ember
  */
 export default class Api extends Service {
-  restApi = service({}, 'rest-api');
+  // restApi = service();
+  @service restApi;
   /**
    * @description Helper function which makes a request.
    * @function doRequest
@@ -18,15 +19,16 @@ export default class Api extends Service {
     return this.restApi
       .request(url, {
         method,
-        data,
+        data
       })
       .catch((error) => {
         let errorInfo = {
           status: error.status,
           name: error.name,
-          message: error.message,
+          message: error.message
         };
-        getOwner(this).transitionTo('error', { queryParams: errorInfo });
+        // eslint-disable-next-line ember/no-private-routing-service
+        getOwner(this).lookup('router:main').transitionTo('error', { queryParams: errorInfo });
       });
   }
   /*   People   */

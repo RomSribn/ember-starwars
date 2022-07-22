@@ -1,0 +1,14 @@
+<div class="item button-hand">
+  <button type="button" class="home-button" {{on "click" this.onClick}}>
+    {{@title}}
+    {{#if @people}}
+    <div class="people" />
+    <div class="people-double" />
+    {{/if}}
+
+    {{#if @starships}}
+    <div class="starships" />
+    <div class="starships-double" />
+    {{/if}}
+  </button>
+</div>

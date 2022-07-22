@@ -1,4 +1,5 @@
 body {
+    height: 100vh;
     background: $background;
     color: $textColor;
     font-size: $normal;
@@ -6,4 +7,26 @@ body {
     letter-spacing: .15em;
     margin: 0;
     overflow: hidden;
+}
+
+.main-title {
+    position: relative;
+
+    .p {
+        margin-top: -15px;
+        width: 100%;
+        position: absolute;
+        font-size: $big;
+        top: -68px;
+        animation: up-down 3s infinite;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes up-down {
+    50% {
+        // margin-top: -20px;
+        transform: translateX(-50%) translateY(-20px);
+    }
 }

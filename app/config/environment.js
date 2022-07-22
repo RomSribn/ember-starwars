@@ -1,11 +1,12 @@
 'use strict';
 
-module.exports = function (environment) {
+export default function (environment) {
   let ENV = {
     modulePrefix: 'swapi-ember',
     environment,
     rootURL: '/',
     locationType: 'auto',
+    apiUrl: 'https://swapi.dev/api',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -13,15 +14,14 @@ module.exports = function (environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false,
-      },
+        Date: false
+      }
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    },
-    apiUrl: 'https://swapi.dev/api',
+    }
   };
 
   if (environment === 'development') {
@@ -49,4 +49,4 @@ module.exports = function (environment) {
   }
 
   return ENV;
-};
+}
