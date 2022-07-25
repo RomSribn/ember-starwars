@@ -7,12 +7,24 @@ import { figuringWinner } from 'ember-starwars/helpers/figuringWinner';
 
 export default class PeopleRoot extends Route {
   @service api;
+  @service store;
+
+  async loadAllModelsPerPage(modelName, page = 1) {
+    const data = await this.store.query(modelName, { page });
+    if (data.links.next) {
+      await this.loadAllModelsPerPage(modelName, page + 1);
+    }
+  }
+
   async model() {
-    const people = await this.api.getPeople();
+    const people = await this.store.findAll('people');
     const fighters = await Promise.all([
-      this.api.getPerson(generateRandom(people.count)),
-      this.api.getPerson(generateRandom(people.count))
+      this.store.findRecord('people', generateRandom(people.count)),
+      this.store.findRecord('people', generateRandom(people.count))
     ]);
-    return { fighters: figuringWinner(...fighters) };
+
+    console.log(people);
+
+    return { fighters: figuringWinner(fighters) };
   }
 }
